@@ -186,7 +186,7 @@ export struct PlanView {
       this.line(entry, h - 15, entry + 8, h - 7);
     }
     if (this.interactive && this.plan.items.length === 0) {
-      c.font = 'bold 19px sans-serif';
+      c.font = 'bold 42px sans-serif';
       c.textAlign = 'center';
       c.textBaseline = 'middle';
       c.fillStyle = '#6A7D72';
@@ -210,7 +210,7 @@ export struct PlanView {
     c.strokeRect(-w / 2, -h / 2, w, h);
     if (this.interactive) {
       c.fillStyle = '#1C3431';
-      c.font = 'bold ' + Math.min(16, 15 * item.scale) + 'px sans-serif';
+      c.font = 'bold ' + Math.min(39, 37 * item.scale) + 'px sans-serif';
       c.textAlign = 'center';
       c.textBaseline = 'middle';
       c.fillText(type.label, 0, 0);

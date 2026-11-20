@@ -354,18 +354,18 @@ struct Index {
       Column({ space: 8 }) {
         Row({ space: 7 }) {
           Text(this.selectedSummary()).fontColor(INK).fontSize(13).fontWeight(FontWeight.Medium).layoutWeight(1)
-          this.Tool('撤销', this.canUndo, () => this.historyStep(true))
-          this.Tool('重做', this.canRedo, () => this.historyStep(false))
+          ToolButton({ label: '撤销', available: this.canUndo, execute: () => this.historyStep(true) })
+          ToolButton({ label: '重做', available: this.canRedo, execute: () => this.historyStep(false) })
         }
         .width('100%')
         Row({ space: 6 }) {
-          this.Tool('转 −15°', this.selected !== '', () => this.adjust(-15, 0))
-          this.Tool('转 +15°', this.selected !== '', () => this.adjust(15, 0))
-          this.Tool('缩小', this.selected !== '', () => this.adjust(0, -0.1))
-          this.Tool('放大', this.selected !== '', () => this.adjust(0, 0.1))
-          this.Tool('删除', this.selected !== '', () => {
+          ToolButton({ label: '转 −15°', available: this.selected !== '', execute: () => this.adjust(-15, 0) })
+          ToolButton({ label: '转 +15°', available: this.selected !== '', execute: () => this.adjust(15, 0) })
+          ToolButton({ label: '缩小', available: this.selected !== '', execute: () => this.adjust(0, -0.1) })
+          ToolButton({ label: '放大', available: this.selected !== '', execute: () => this.adjust(0, 0.1) })
+          ToolButton({ label: '删除', available: this.selected !== '', execute: () => {
             this.commit(this.plan.items.filter((it: PlacedItem) => it.id !== this.selected));
-          })
+          } })
         }
         .width('100%').justifyContent(FlexAlign.SpaceBetween)
       }
@@ -387,13 +387,6 @@ struct Index {
     .width('100%').constraintSize({ maxWidth: 600 }).padding({ left: 16, right: 16, top: 6, bottom: 18 })
   }
 
-  @Builder
-  Tool(label: string, active: boolean, action: () => void) {
-    Button(label, { type: ButtonType.Normal })
-      .enabled(active).height(34).borderRadius(7).fontSize(12)
-      .fontColor(active ? PINE : '#687A71').backgroundColor(active ? '#DFEDE0' : '#EFF2ED')
-      .padding({ left: 8, right: 8 }).onClick(action)
-  }
 
   @Builder
   Library() {
@@ -454,7 +447,7 @@ struct Index {
         }
         Row({ space: 8 }) {
           Blank()
-          this.Tool('取消', !this.busy, () => { this.dialog = ''; })
+          ToolButton({ label: '取消', available: !this.busy, execute: () => { this.dialog = ''; } })
           Button(this.dialog === 'save' ? (this.busy ? '正在保存…' : '确认保存') : '放弃修改')
             .fontSize(13).height(36).backgroundColor(PINE).enabled(!this.busy)
             .onClick(() => {
@@ -471,5 +464,19 @@ struct Index {
       .width('90%').constraintSize({ maxWidth: 400 }).padding(18).backgroundColor(WHITE).borderRadius(18)
     }
     .width('100%').height('100%').justifyContent(FlexAlign.Center).backgroundColor('#70152B23')
+  }
+}
+
+@Component
+struct ToolButton {
+  @Prop label: string = '';
+  @Prop available: boolean = false;
+  execute: () => void = (): void => {};
+
+  build() {
+    Button(this.label, { type: ButtonType.Normal })
+      .enabled(this.available).height(34).borderRadius(7).fontSize(12)
+      .fontColor(this.available ? PINE : '#687A71').backgroundColor(this.available ? '#DFEDE0' : '#EFF2ED')
+      .padding({ left: 8, right: 8 }).onClick(() => this.execute())
   }
 }
