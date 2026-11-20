@@ -1,0 +1,49 @@
+{
+  "executedAt": "2026-11-20T08:49:34.550Z",
+  "target": "127.0.0.1:5555",
+  "system": "emulator 7.0.0.120(SP33DEVC00E999R4P11)",
+  "tests": [
+    {
+      "id": "U01 two native templates, blank library",
+      "status": "PASS",
+      "durationMs": 5896,
+      "detail": ""
+    },
+    {
+      "id": "U02 drag, overlap, boundary, undo and redo",
+      "status": "PASS",
+      "durationMs": 30219,
+      "detail": ""
+    },
+    {
+      "id": "U03 six items, tap selection, transform, delete and undo",
+      "status": "PASS",
+      "durationMs": 22429,
+      "detail": ""
+    },
+    {
+      "id": "U04 blank name validation and first save",
+      "status": "PASS",
+      "durationMs": 15305,
+      "detail": ""
+    },
+    {
+      "id": "U05 save a booth and a second dorm",
+      "status": "PASS",
+      "durationMs": 35545,
+      "detail": ""
+    },
+    {
+      "id": "U06 actual process termination, reload, reopen and update",
+      "status": "PASS",
+      "durationMs": 20979,
+      "detail": {
+        "beforePid": 29196,
+        "afterPid": 2110,
+        "plansRestored": 3,
+        "continuedRotation": 30
+      }
+    }
+  ],
+  "status": "PASS"
+}
