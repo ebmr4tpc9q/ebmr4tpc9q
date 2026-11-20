@@ -1,9 +1,9 @@
 import { ItemType, PlacedItem, Plan, Point, Surface, surfaceFor, typeFor } from '../domain/LayoutModel';
 import { LayoutIssue, hitItem, inspectLayout } from '../domain/LayoutRules';
 
-const WALL: string = '#385550';
-const GRID: string = '#DCE5DE';
-const WARNING: string = '#AD4435';
+const WALL: string = '#ACC4FF';
+const GRID: string = '#2C3761';
+const WARNING: string = '#FF817C';
 
 @Component
 export struct PlanView {
@@ -146,14 +146,15 @@ export struct PlanView {
     const c = this.context;
     const w = surface.width;
     const h = surface.height;
-    c.fillStyle = '#FAFCF7';
+    c.fillStyle = '#1B2450';
     c.fillRect(0, 0, w, h);
-    c.strokeStyle = GRID;
     c.lineWidth = 1;
     for (let x = 24; x < w; x += 24) {
+      c.strokeStyle = x % 96 === 0 ? '#46558B' : GRID;
       this.line(x, 0, x, h);
     }
     for (let y = 24; y < h; y += 24) {
+      c.strokeStyle = y % 96 === 0 ? '#46558B' : GRID;
       this.line(0, y, w, y);
     }
     c.strokeStyle = WALL;
@@ -167,18 +168,18 @@ export struct PlanView {
     c.lineTo(surface.door + surface.doorWidth, h);
     c.stroke();
     if (surface.id === 'dorm') {
-      c.fillStyle = '#A6CDD3';
+      c.fillStyle = '#70D3FF';
       c.fillRect(w - 4, 56, 8, 126);
-      c.strokeStyle = '#7DAA94';
+      c.strokeStyle = '#8DB6FF';
       c.lineWidth = 2;
       c.beginPath();
       c.arc(surface.door, h, surface.doorWidth, -Math.PI / 2, 0);
       c.stroke();
       this.line(surface.door, h, surface.door, h - surface.doorWidth);
     } else {
-      c.fillStyle = '#C8DDA5';
+      c.fillStyle = '#948BFF';
       c.fillRect(0, 0, w, 10);
-      c.strokeStyle = '#7DAA94';
+      c.strokeStyle = '#8DB6FF';
       c.lineWidth = 2;
       const entry = surface.door + surface.doorWidth / 2;
       this.line(entry, h + 13, entry, h - 15);
@@ -189,7 +190,7 @@ export struct PlanView {
       c.font = 'bold 42px sans-serif';
       c.textAlign = 'center';
       c.textBaseline = 'middle';
-      c.fillStyle = '#6A7D72';
+      c.fillStyle = '#CFD8FB';
       c.fillText('从下方选取物件开始布置', w / 2, h / 2);
     }
   }
@@ -203,19 +204,19 @@ export struct PlanView {
     c.save();
     c.translate(item.x, item.y);
     c.rotate(item.angle * Math.PI / 180);
-    c.fillStyle = conflicted ? '#F7CBBD' : type.color;
+    c.fillStyle = conflicted ? '#FFAAA9' : type.color;
     c.fillRect(-w / 2, -h / 2, w, h);
-    c.strokeStyle = conflicted ? WARNING : active ? '#177851' : '#6C8377';
+    c.strokeStyle = conflicted ? WARNING : active ? '#F6FAFF' : '#5D6996';
     c.lineWidth = active || conflicted ? 3 : 1.6;
     c.strokeRect(-w / 2, -h / 2, w, h);
     if (this.interactive) {
-      c.fillStyle = '#1C3431';
+      c.fillStyle = '#192240';
       c.font = 'bold ' + Math.min(39, 37 * item.scale) + 'px sans-serif';
       c.textAlign = 'center';
       c.textBaseline = 'middle';
       c.fillText(type.label, 0, 0);
       if (active) {
-        c.fillStyle = conflicted ? WARNING : '#177851';
+        c.fillStyle = conflicted ? WARNING : '#F6FAFF';
         c.fillRect(-w / 2 - 3.5, -h / 2 - 3.5, 7, 7);
         c.fillRect(w / 2 - 3.5, h / 2 - 3.5, 7, 7);
       }

@@ -43,12 +43,12 @@ export const SURFACES: Surface[] = [
 ];
 
 export const CATALOG: ItemType[] = [
-  { id: 'bed', label: '床', color: '#BCD0E2', width: 148, height: 68 },
-  { id: 'desk', label: '书桌', color: '#F1D495', width: 105, height: 51 },
-  { id: 'cabinet', label: '收纳柜', color: '#D3C4E3', width: 76, height: 42 },
-  { id: 'chair', label: '椅子', color: '#ADCFC3', width: 45, height: 45 },
-  { id: 'counter', label: '展台', color: '#E9B4A8', width: 96, height: 58 },
-  { id: 'board', label: '展板', color: '#D5D9AA', width: 112, height: 29 }
+  { id: 'bed', label: '床', color: '#9DB9FF', width: 148, height: 68 },
+  { id: 'desk', label: '书桌', color: '#FFC376', width: 105, height: 51 },
+  { id: 'cabinet', label: '收纳柜', color: '#C8AFF8', width: 76, height: 42 },
+  { id: 'chair', label: '椅子', color: '#88DBC9', width: 45, height: 45 },
+  { id: 'counter', label: '展台', color: '#FCA9A1', width: 96, height: 58 },
+  { id: 'board', label: '展板', color: '#E4DC88', width: 112, height: 29 }
 ];
 
 export const MAX_ITEMS: number = 40;
