@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "二维空间布置与方案编辑"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "打开角落计划"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "角落计划"
+    }
+  ]
+}

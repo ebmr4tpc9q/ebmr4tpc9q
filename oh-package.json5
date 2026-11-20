@@ -1,0 +1,8 @@
+{
+  "modelVersion": "26.0.1",
+  "name": "space-layout-studio",
+  "version": "1.0.0",
+  "description": "角落计划 二维空间布置与方案编辑",
+  "dependencies": {},
+  "devDependencies": { "@ohos/hypium": "1.0.21" }
+}
