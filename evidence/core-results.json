@@ -1,0 +1,54 @@
+{
+  "runtime": "v24.12.0",
+  "executedAt": "2026-11-20T08:31:04.972Z",
+  "tests": [
+    {
+      "id": "C01 templates-and-catalog",
+      "status": "PASS"
+    },
+    {
+      "id": "C02 topmost-rotated-hit",
+      "status": "PASS"
+    },
+    {
+      "id": "C03 touching-wall-and-rotated-boundary",
+      "status": "PASS"
+    },
+    {
+      "id": "C04 overlap-threshold",
+      "status": "PASS"
+    },
+    {
+      "id": "C05 scale-rotation-limits",
+      "status": "PASS"
+    },
+    {
+      "id": "C06 edit-undo-redo-and-branch",
+      "status": "PASS"
+    },
+    {
+      "id": "C07 save-three-and-reopen",
+      "status": "PASS"
+    },
+    {
+      "id": "C08 blank-name",
+      "status": "PASS"
+    },
+    {
+      "id": "C09 corrupt-archive-blocks-overwrite",
+      "status": "PASS"
+    },
+    {
+      "id": "C10 flush-failure-and-retry",
+      "status": "PASS"
+    },
+    {
+      "id": "C11 reject-duplicate-item-ids",
+      "status": "PASS"
+    },
+    {
+      "id": "C12 full-library-allows-update",
+      "status": "PASS"
+    }
+  ]
+}
