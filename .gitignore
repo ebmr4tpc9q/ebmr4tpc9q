@@ -1,0 +1,10 @@
+.idea/
+.hvigor/
+oh_modules/
+**/build/
+local.properties
+*.p12
+*.p7b
+*.cer
+.test-build/
+__pycache__/
